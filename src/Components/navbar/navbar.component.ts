@@ -9,4 +9,8 @@ import { ButtonComponent } from '../../ReusableComponents/button/button.componen
 })
 export class NavbarComponent {
 
+  TestThisButton():void {
+    console.log("this button works fine");
+  }
+
 }
