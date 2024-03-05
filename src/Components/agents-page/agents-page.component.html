@@ -1,0 +1,26 @@
+<app-search></app-search>
+<!---->
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Full Name</th>
+        <th scope="col">Availibility</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Adress</th>
+      </tr>
+    </thead>
+
+    <tbody>
+        
+      <tr *ngFor="let agent of agents">
+        <th scope="row">{{agent.id}}</th>
+        <td>{{agent.name}}</td>
+        <td>{{agent.Availability}}</td>
+        <td>{{agent.phone}}</td>
+        <td>{{agent.adress}}</td>
+       
+        </tr>
+
+    </tbody>
+  </table>
