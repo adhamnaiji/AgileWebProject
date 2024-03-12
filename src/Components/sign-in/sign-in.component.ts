@@ -1,9 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { InputComponent } from '../../ReusableComponents/input/input.component';
-import {RouterModule} from '@angular/router';
+import {ActivatedRoute, Router, RouterModule} from '@angular/router';
 import { FormBuilder,FormGroup, Validators } from '@angular/forms';
 import { AgentService } from '../services/agent.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { environment } from '../../environments/environments';
+import { AppComponent } from '../../app/app.component';
+import { SharedService } from '../../app/shared.service';
 
 
 @Component({
@@ -17,7 +20,9 @@ export class SignInComponent  implements OnInit{
 
   postuserform!: FormGroup;
   constructor(private agentservice:AgentService,
-    private fb:FormBuilder){}
+    private fb:FormBuilder,
+    private router: Router,
+    private sharedservice:SharedService){}
 
 
 
@@ -34,11 +39,27 @@ export class SignInComponent  implements OnInit{
 
   postuser(){
     //console.log(this.postuserform.value);
-    this.agentservice.loginUser(this.postuserform.value).subscribe((res)=>{
-        console.log(res);
+    this.agentservice.loginUser(this.postuserform.value).subscribe(
+      (res: any) => {
+        console.log('Response mregule',res);
+        //console.log(sessionStorage.getItem('login'));
+       // environment.login="true";
+       //new AppComponent().login();
+       //sessionStorage.setItem('login','hhkhhl');
+       //this.agentservice.session='true';
+       this.sharedservice.set(JSON.stringify(res));
 
-      
-    })
+
+        this.router.navigate(['/acceuil']);
+
+      },
+      (error) => {
+        console.error('Error occurred:', error.error);
+        //itala3 el error
+        alert( error.error);
+      }
+    );
+    
 
 
 

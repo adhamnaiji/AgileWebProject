@@ -23,9 +23,14 @@
                 </li>
 
             </ul>
-
-            <a class="navbar-brand"  routerLink="signup">S'inscrire</a>
-            <app-button text="Login" color="#1A938C" (btnClick)="GoToSignIn()"></app-button>
+            <div *ngIf="!getll ">
+                <a class="navbar-brand" routerLink="signup">S'inscrire</a>
+                <app-button text="Login" color="#1A938C" (btnClick)="GoToSignIn()"></app-button>
+            </div>
+            <div *ngIf="getll">
+                <app-button text="Logout" color="#1A938C" (btnClick)="getllout()"></app-button>
+            </div>
+            
         </div>
     </div>
 </nav>

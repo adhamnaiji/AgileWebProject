@@ -18,7 +18,7 @@ export class AgentsPageComponent implements OnInit {
   agents:Agent[]=[];
 
   constructor( private agentservice:AgentService,private activeroute:ActivatedRoute){
-
+   
     
   }
   

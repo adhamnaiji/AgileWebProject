@@ -24,7 +24,14 @@ export class SearchComponent implements OnInit {
 
   search(term: string): void {
     if (term.trim()) {
-    this.router.navigate(['/ag', term.trim()]);
+      if(this.router.url=="/users"){
+        this.router.navigate(['/users', term.trim()]);
+      }
+      else if (this.router.url=="/agents"){
+        this.router.navigate(['/ag', term.trim()]);
+
+      }
+   // console.log(this.router.url);
     }
     
   }

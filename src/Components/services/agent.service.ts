@@ -3,7 +3,7 @@ import { Agent } from '../Shared/Models/Agent';
 import { agents_list } from '../../data';
 import { HttpClient } from '@angular/common/http';
 import { user } from '../../app/user';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -23,13 +23,26 @@ export class AgentService {
 
 
   users!:any;
-
+//agents
   getAllAgents():Agent[]{
     return agents_list;
   }
 
   getAllAgentBySearch(searchterm:string){
     return this.getAllAgents().filter(agent => agent.name.toLowerCase().includes(searchterm.toLowerCase()));
+  }
+
+
+//users
+
+  getAllusers():Observable<user[]>{
+     return this.http.get<user[]>("http://localhost:8090/users");
+  }
+
+  getAllUsersBySearch(searchterm: string): Observable<user[]> {
+    return this.getAllusers().pipe(
+      map(users => users.filter(user => user.nom.toLowerCase().includes(searchterm.toLowerCase())))
+    );
   }
 
 
