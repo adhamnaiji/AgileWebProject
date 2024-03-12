@@ -17,7 +17,10 @@ import { SearchComponent } from '../search/search.component';
 export class AgentsPageComponent implements OnInit {
   agents:Agent[]=[];
 
-  constructor( private agentservice:AgentService,private activeroute:ActivatedRoute){}
+  constructor( private agentservice:AgentService,private activeroute:ActivatedRoute){
+
+    
+  }
   
   ngOnInit(): void {
     this.activeroute.params.subscribe((params)=>{

@@ -24,8 +24,9 @@ export class SearchComponent implements OnInit {
 
   search(term: string): void {
     if (term.trim()) {
-      this.router.navigate(['/ag', term.trim()]);
+    this.router.navigate(['/ag', term.trim()]);
     }
+    
   }
 
   }
