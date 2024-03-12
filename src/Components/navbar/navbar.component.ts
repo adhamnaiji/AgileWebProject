@@ -8,6 +8,7 @@ import { AppComponent } from '../../app/app.component';
 import { AgentService } from '../services/agent.service';
 import { SharedService } from '../../app/shared.service';
 
+
 @Component({
   selector: 'app-navbar',
   standalone: true,
@@ -25,6 +26,7 @@ constructor(private router:Router,public agentservice:AgentService,private share
   ngOnInit(): void {
     
       this.login = this.sharedservice.login;
+      console.log(this.sharedservice.getl());
     };
   
 
@@ -41,6 +43,16 @@ constructor(private router:Router,public agentservice:AgentService,private share
 
    getllout(){
      this.sharedservice.getout();
+     this.router.navigate(['/acceuil']);
+  }
+
+  onSelect(): void {
+    const selectElement = document.getElementById('disabledSelect') as HTMLSelectElement;
+    const selectedValue = selectElement.value;
+    
+    if (selectedValue) {
+      this.router.navigate([selectedValue]);
+    }
   }
 
 

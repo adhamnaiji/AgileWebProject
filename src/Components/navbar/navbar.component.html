@@ -27,11 +27,27 @@
                 <a class="navbar-brand" routerLink="signup">S'inscrire</a>
                 <app-button text="Login" color="#1A938C" (btnClick)="GoToSignIn()"></app-button>
             </div>
-            <div *ngIf="getll">
-                <app-button text="Logout" color="#1A938C" (btnClick)="getllout()"></app-button>
+        
+
+            <div class="dropdown" *ngIf="getll">
+                <div class="row" style="background-color:white; opacity:0.8; border-radius: 0px 0px 30px 30px;">
+                    <div class="col">
+                        <select id="disabledSelect" class="form-control" (change)="onSelect()">
+                            <option value="profile">profile</option>
+                            <option value="settings">settings</option>
+                        </select>
+                    </div>
+                </div>
             </div>
             
-        </div>
+        <div *ngIf="getll">
+            <app-button text="Logout" color="#1A938C" (btnClick)="getllout()"></app-button>
+
+          </div>
+
+
+        
     </div>
+</div>
 </nav>
 

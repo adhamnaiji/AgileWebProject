@@ -6,6 +6,8 @@ import { ResetPaswwordComponent } from '../Components/reset-paswword/reset-pasww
 import { AgentsPageComponent } from '../Components/agents-page/agents-page.component';
 import { TestapiComponent } from '../Components/testapi/testapi.component';
 import { PatientsComponent } from '../Components/patients/patients.component';
+import { ProfileComponent } from '../Components/profile/profile.component';
+import { SettingsComponent } from '../Components/settings/settings.component';
 
 export const routes: Routes = [
     {path:"acceuil",component:MainPageComponent},
@@ -16,6 +18,9 @@ export const routes: Routes = [
     {path:"ag/:searchterm",component:AgentsPageComponent},
     {path:"users",component:PatientsComponent},
     {path:"users/:searchterm",component:PatientsComponent},
+    {path:"profile",component:ProfileComponent},
+    {path:"settings",component:SettingsComponent},
+
 
     
     {path:"",redirectTo:"/acceuil",pathMatch:'full'}
