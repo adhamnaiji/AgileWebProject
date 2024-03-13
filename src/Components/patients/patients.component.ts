@@ -15,6 +15,7 @@ import { SearchComponent } from '../search/search.component';
 export class PatientsComponent {
 
   users: user[] = [];
+valueS="Search users";
 
   constructor(private agentService: AgentService, private route: ActivatedRoute) {}
 

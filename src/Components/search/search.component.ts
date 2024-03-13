@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component, Input, NgModule, OnInit, input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -12,6 +12,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class SearchComponent implements OnInit {
   searchterm='';
+  @Input() placeholderT: string | undefined;
+
   constructor(private activatedRoute: ActivatedRoute, private router: Router){
     this.activatedRoute.params.subscribe((params) => {
       if (params.searchterm) {
@@ -24,14 +26,25 @@ export class SearchComponent implements OnInit {
 
   search(term: string): void {
     if (term.trim()) {
-      if(this.router.url=="/users"){
-        this.router.navigate(['/users', term.trim()]);
+      console.log("url",this.router.url);
+      if(this.router.url.startsWith("/admin/users")){
+        this.router.navigate(['/admin/users', term.trim()]);
       }
-      else if (this.router.url=="/agents"){
-        this.router.navigate(['/ag', term.trim()]);
+      else if (this.router.url.startsWith("/admin/agents")){
+        this.router.navigate(['/admin/agents', term.trim()]);
 
       }
    // console.log(this.router.url);
+    }
+    else{
+      if(this.router.url.startsWith("/admin/users")){
+        this.router.navigate(['/admin/users']);
+      }
+      else if (this.router.url.startsWith("/admin/agents")){
+        this.router.navigate(['/admin/agents']);
+
+      }
+
     }
     
   }

@@ -18,6 +18,8 @@ import { SharedService } from '../../app/shared.service';
 })
 export class NavbarComponent implements OnInit {
 login:any=null;
+userinfo:any;
+  infou:any;
 
 
 constructor(private router:Router,public agentservice:AgentService,private sharedservice:SharedService){
@@ -27,6 +29,9 @@ constructor(private router:Router,public agentservice:AgentService,private share
     
       this.login = this.sharedservice.login;
       console.log(this.sharedservice.getl());
+
+      this.userinfo = this.sharedservice.getl();
+    this.infou=JSON.parse(this.userinfo);
     };
   
 
@@ -35,6 +40,7 @@ constructor(private router:Router,public agentservice:AgentService,private share
     //console.log(environment.login);
     // new AppComponent().logout();
     this.router.navigate(['/signin']);
+
   }
 
   get getll(){

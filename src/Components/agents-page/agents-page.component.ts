@@ -16,6 +16,7 @@ import { SearchComponent } from '../search/search.component';
 })
 export class AgentsPageComponent implements OnInit {
   agents:Agent[]=[];
+valueS="Search agents";
 
   constructor( private agentservice:AgentService,private activeroute:ActivatedRoute){
    
