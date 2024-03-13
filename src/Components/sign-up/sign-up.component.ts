@@ -32,14 +32,29 @@ submitForm(_form: NgForm) {
        "mdp":_form.value.password,
       "type":"",
        "age":age,
-      "localisation":"position" ,
+      "localisation":_form.value.adresse ,
       "specialite":_form.value.specialite,
       "disponibilite":true 
     
   }
   this.agentservice.signupUser(userbody).subscribe((res)=>{
+
    console.log(res);
-})
+   this.resetChamps(_form);
+   //console.log("tsab mrgl");
+  },
+  (error) => {
+    console.error('Error occurred:', error.error);
+    //itala3 el error
+    alert( error.error);
+  }
+)
+
+}
+
+resetChamps(_form: NgForm){
+  alert("User Successfully added");
+  _form.reset();
 
 }
 
