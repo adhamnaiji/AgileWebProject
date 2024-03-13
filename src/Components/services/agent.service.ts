@@ -51,6 +51,20 @@ export class AgentService {
       map(users => users.filter(user => user.nom.toLowerCase().includes(searchterm.toLowerCase())))
     );
   }
+  private apiUrl = 'http://localhost:8090/reset-password';
+
+    //const url = `http://localhost:8090/reset-password/${mail}`;
+    resetPassword(email: string): Observable<string> {
+      const url = `${this.apiUrl}/${email}`;
+      return this.http.post<string>(url, {}).pipe(
+        map(response => {
+          // Assuming the response is a string, you can return it directly
+          console.log("res",response);
+          return response;
+        })
+      );
+    }
+  
 
 
 loginUser(thisuser:any):Observable<any>{
