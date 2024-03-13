@@ -8,6 +8,7 @@
         <th scope="col">Availibility</th>
         <th scope="col">Phone</th>
         <th scope="col">Adress</th>
+        <th scope="col">Rating</th>
       </tr>
     </thead>
 
@@ -19,7 +20,10 @@
         <td>{{agent.Availability}}</td>
         <td>{{agent.phone}}</td>
         <td>{{agent.adress}}</td>
-       
+        <td>{{agent.likes}}</td>
+
+        <td><app-button text="Details" color="#1A938C" (btnClick)="details(agent)"></app-button></td>
+
         </tr>
 
     </tbody>

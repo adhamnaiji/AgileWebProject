@@ -52,6 +52,11 @@ constructor(private router:Router,public agentservice:AgentService,private share
      this.router.navigate(['/acceuil']);
   }
 
+  getin(){
+    this.login=this.sharedservice.getl();
+    this.router.navigate(['/acceuil']);
+ }
+
   onSelect(): void {
     const selectElement = document.getElementById('disabledSelect') as HTMLSelectElement;
     const selectedValue = selectElement.value;

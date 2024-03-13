@@ -11,6 +11,7 @@ import { SettingsComponent } from '../Components/settings/settings.component';
 import { AdminComponent } from '../Components/admin/admin.component';
 import { SearchComponent } from '../Components/search/search.component';
 import { NavbarComponent } from '../Components/navbar/navbar.component';
+import { AgentdetailsComponent } from '../Components/agentdetails/agentdetails.component';
 
 export const routes: Routes = [
     {path:"acceuil",component:MainPageComponent,},
@@ -18,7 +19,8 @@ export const routes: Routes = [
     {path:"signup",component:SignUpComponent},
     {path:"forgetpassword",component:ResetPaswwordComponent},
     {path:"agents",component:AgentsPageComponent},
-    {path:"ag/:searchterm",component:AgentsPageComponent},
+    {path:"agents/:searchterm",component:AgentsPageComponent},
+    {path:"agent",component:AgentdetailsComponent},
     //{path:"users",component:PatientsComponent},
     //{path:"users/:searchterm",component:PatientsComponent},
     {path:"profile",component:ProfileComponent},

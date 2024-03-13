@@ -4,4 +4,7 @@ export class Agent{
     Availability!:boolean;
     phone!:string;
     adress!:string;
+    specialite!:string;
+    likes!:number;
+    
 }

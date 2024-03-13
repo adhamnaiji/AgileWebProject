@@ -48,9 +48,11 @@ export class SignInComponent  implements OnInit{
        //sessionStorage.setItem('login','hhkhhl');
        //this.agentservice.session='true';
        this.sharedservice.set(JSON.stringify(res));
+    this.router.navigate(['/acceuil']);
 
 
-        this.router.navigate(['/acceuil']);
+
+        
 
       },
       (error) => {

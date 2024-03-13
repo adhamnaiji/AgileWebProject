@@ -1,27 +1,39 @@
 import { Component, NgModule, OnInit } from '@angular/core';
 import { Agent } from '../Shared/Models/Agent';
 import { AgentService } from '../services/agent.service';
-import {ActivatedRoute, RouterModule, RouterOutlet} from '@angular/router';
+import {ActivatedRoute, Router, RouterModule, RouterOutlet} from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { SearchComponent } from '../search/search.component';
-
+import { ButtonComponent } from '../../ReusableComponents/button/button.component';
 
 
 @Component({
   selector: 'app-agents-page',
   standalone: true,
-  imports: [RouterOutlet,RouterModule,CommonModule,SearchComponent],
+  imports: [RouterOutlet,RouterModule,CommonModule,SearchComponent,ButtonComponent],
   templateUrl: './agents-page.component.html',
   styleUrl: './agents-page.component.css'
 })
 export class AgentsPageComponent implements OnInit {
-  agents:Agent[]=[];
-valueS="Search agents";
 
-  constructor( private agentservice:AgentService,private activeroute:ActivatedRoute){
-   
-    
-  }
+  agents:Agent[]=[];
+  valueS="Search agents";
+  
+    constructor( private agentservice:AgentService,private activeroute:ActivatedRoute, private router:Router){
+     
+      
+    }
+
+details(id:any) {
+  console.log(id);
+  this.agentservice.agentdetails(id);
+  this.router.navigate(['/agent']);
+
+
+}
+
+
+ 
   
   ngOnInit(): void {
     this.activeroute.params.subscribe((params)=>{

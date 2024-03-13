@@ -34,6 +34,11 @@ export class SearchComponent implements OnInit {
         this.router.navigate(['/admin/agents', term.trim()]);
 
       }
+      else if (this.router.url.startsWith("/agents")){
+        this.router.navigate(['/agents', term.trim()]);
+
+
+      }
    // console.log(this.router.url);
     }
     else{
@@ -42,6 +47,10 @@ export class SearchComponent implements OnInit {
       }
       else if (this.router.url.startsWith("/admin/agents")){
         this.router.navigate(['/admin/agents']);
+
+      } else if (this.router.url.startsWith("/agents")){
+        this.router.navigate(['/agents']);
+
 
       }
 

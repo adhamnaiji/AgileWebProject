@@ -10,6 +10,8 @@ import { Observable, map } from 'rxjs';
 })
 export class AgentService {
 
+  agentdet:any;
+
 
   private usersUrl: string;
 
@@ -17,6 +19,11 @@ export class AgentService {
     this.usersUrl = 'http://localhost:8090/users';
   }
 
+
+  agentdetails(currentagent:any){
+    this.agentdet=currentagent;
+    return this.agentdet;
+  }
   public findAll(): Observable<user[]> {
     return this.http.get<user[]>(this.usersUrl);
   }
