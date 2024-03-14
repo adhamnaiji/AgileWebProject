@@ -100,6 +100,12 @@ addtache(userid:any,employeid:any,tache:any): Observable<any>{
   );;
 
 }
+
+
+gettaches(id:any):Observable<any[]>{
+  
+  return this.http.get<any[]>(`http://localhost:8090/tachebyemp?id=${id}`);
+}
   
 
 

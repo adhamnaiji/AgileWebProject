@@ -12,6 +12,7 @@ import { AdminComponent } from '../Components/admin/admin.component';
 import { SearchComponent } from '../Components/search/search.component';
 import { NavbarComponent } from '../Components/navbar/navbar.component';
 import { AgentdetailsComponent } from '../Components/agentdetails/agentdetails.component';
+import { UsersTachesComponent } from '../Components/users-taches/users-taches.component';
 
 export const routes: Routes = [
     {path:"acceuil",component:MainPageComponent,},
@@ -24,7 +25,7 @@ export const routes: Routes = [
     //{path:"users",component:PatientsComponent},
     //{path:"users/:searchterm",component:PatientsComponent},
     {path:"profile",component:ProfileComponent},
-    {path:"settings",component:SettingsComponent},
+    {path:"taches",component:UsersTachesComponent},
 
     {
         path:"admin",
