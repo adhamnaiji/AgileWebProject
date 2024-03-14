@@ -17,7 +17,7 @@ import { ButtonComponent } from '../../ReusableComponents/button/button.componen
 export class AgentsPageComponent implements OnInit {
 
   agents:Agent[]=[];
-  valueS="Search agents";
+  valueS="Search agents by Speciality";
 admin: boolean=false;
   
     constructor( private agentservice:AgentService,private activeroute:ActivatedRoute, private router:Router){

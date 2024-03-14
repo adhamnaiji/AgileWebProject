@@ -38,7 +38,7 @@ console.log(this.agentService.deleteUserById(id));
 }
 
   users: user[] = [];
-valueS="Search users";
+valueS="Search Users by Name";
 
   constructor(private agentService: AgentService, private route: ActivatedRoute,private router:Router) {
 
