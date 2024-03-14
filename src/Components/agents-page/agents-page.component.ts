@@ -44,7 +44,7 @@ details(id:any) {
     }
     this.activeroute.params.subscribe((params)=>{
       if(params.searchterm){
-        this.agents=this.agentservice.getAllAgentBySearch(params.searchterm);
+        this.agents=this.agentservice.getAllAgentBySearchspecialite(params.searchterm);
       console.log(this.agentservice.getAllAgentBySearch(params.searchterm));
     }
     else {

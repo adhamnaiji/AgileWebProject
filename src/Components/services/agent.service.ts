@@ -4,6 +4,7 @@ import { agents_list } from '../../data';
 import { HttpClient } from '@angular/common/http';
 import { user } from '../../app/user';
 import { Observable, map } from 'rxjs';
+import { Task } from '../../app/Task';
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +38,10 @@ export class AgentService {
 
   getAllAgentBySearch(searchterm:string){
     return this.getAllAgents().filter(agent => agent.name.toLowerCase().includes(searchterm.toLowerCase()));
+  }
+
+  getAllAgentBySearchspecialite(searchterm:string){
+    return this.getAllAgents().filter(agent => agent.specialite.toLowerCase().includes(searchterm.toLowerCase()));
   }
 
 
@@ -102,11 +107,20 @@ addtache(userid:any,employeid:any,tache:any): Observable<any>{
 }
 
 
-gettaches(id:any):Observable<any[]>{
+gettaches(id:any):Observable<Task[]>{
   
-  return this.http.get<any[]>(`http://localhost:8090/tachebyemp?id=${id}`);
+  return this.http.get<Task[]>(`http://localhost:8090/tachebyemp?id=${id}`);
 }
   
+gettAllaches():Observable<Task[]>{
+  
+  return this.http.get<Task[]>(`http://localhost:8090/taches`);
+}
 
+
+deletetachbyid(id:any):Observable<string>{
+  
+  return this.http.delete<string>(`http://localhost:8090/deletetache/${id}`);
+}
 
 }

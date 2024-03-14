@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AgentService } from '../services/agent.service';
 import { SharedService } from '../../app/shared.service';
 import { CommonModule } from '@angular/common';
+import { Task } from '../../app/Task';
+import { user } from '../../app/user';
 
 @Component({
   selector: 'app-users-taches',
@@ -11,7 +13,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './users-taches.component.css'
 })
 export class UsersTachesComponent implements OnInit {
-taches: any[]=[];
+taches: Task[]=[];
 
   login: any;
   userinfo!: any;
@@ -29,8 +31,13 @@ taches: any[]=[];
     this.infou=JSON.parse(this.userinfo);
 
     this.agentservice.gettaches(this.infou.id).subscribe(p=>{
-      console.log(p);
-      this.taches.push(JSON.stringify(p));
+      if (Array.isArray(p)) {
+        // If the response is an array, directly assign it to the taches array
+        this.taches = p;
+      } else {
+        // If the response is not an array, push it to the taches array
+        this.taches.push(p);
+      }
       
     })
 
