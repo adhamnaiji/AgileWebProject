@@ -52,6 +52,7 @@ export class AgentService {
     );
   }
   private apiUrl = 'http://localhost:8090/reset-password';
+  private baseurl = 'http://localhost:8090';
 
     //const url = `http://localhost:8090/reset-password/${mail}`;
     resetPassword(email: string): Observable<string> {
@@ -74,6 +75,29 @@ loginUser(thisuser:any):Observable<any>{
 
 signupUser(thisformuser:any):Observable<any>{
   return this.http.post("http://localhost:8090/signup",thisformuser);
+
+}
+
+deleteUserById(id:number): Observable<string>{
+  const url = `${this.baseurl}/delete/${id}`;
+  return this.http.delete<string>(url).pipe(
+    map(response => {
+      console.log("res",response);
+      return response;
+    })
+  );
+}
+
+
+addtache(userid:any,employeid:any,tache:any): Observable<any>{
+  const url2 = `${this.baseurl}/tache?userId=${userid}&employeId=${employeid}`;
+  console.log("url2",url2);
+  return this.http.post<any>(url2,tache).pipe(
+    map(response => {
+      console.log("res",response);
+      //return response;
+    })
+  );;
 
 }
   

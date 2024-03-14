@@ -21,8 +21,7 @@
         <td>{{agent.phone}}</td>
         <td>{{agent.adress}}</td>
         <td>{{agent.likes}}</td>
-
-        <td><app-button text="Details" color="#1A938C" (btnClick)="details(agent)"></app-button></td>
+        <td *ngIf="!admin"><app-button text="Details" color="#1A938C" (btnClick)="details(agent)"></app-button></td>
 
         </tr>
 

@@ -19,6 +19,7 @@
         <td>{{patient.disponibilite}}</td>
         <td>{{patient.telephone}}</td>
         <td>{{patient.localisation}}</td>
+        <td *ngIf="admin"><app-button text="Delete" color="red" (btnClick)="delete(patient.id)"></app-button></td>
        
         </tr>
 

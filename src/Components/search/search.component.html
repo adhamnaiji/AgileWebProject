@@ -1,4 +1,7 @@
-<div>
-    <input #s type="text" [placeholder]="placeholderT" [(ngModel)]="searchterm" (keyup.enter)="search(s.value)">
-    <button (click)="search(s.value)">search</button>
-</div>
+<div class="row justify-content-center">
+    <div class="col-md-6 d-flex align-items-center p-3">
+      <input #s type="text" [placeholder]="placeholderT" class="form-control" [(ngModel)]="searchterm" (keyup.enter)="search(s.value)">
+      <button [ngStyle]="{'background-color':'green'}" class="btn" (click)="search(s.value)">Search</button>
+    </div>
+  </div>
+  

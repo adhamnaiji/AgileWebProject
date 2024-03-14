@@ -18,6 +18,7 @@ export class AgentsPageComponent implements OnInit {
 
   agents:Agent[]=[];
   valueS="Search agents";
+admin: boolean=false;
   
     constructor( private agentservice:AgentService,private activeroute:ActivatedRoute, private router:Router){
      
@@ -36,6 +37,11 @@ details(id:any) {
  
   
   ngOnInit(): void {
+    if(this.router.url.startsWith("/admin")){
+      this.admin=true;
+    }else if(!this.router.url.startsWith("/admin")){
+      this.admin=false;
+    }
     this.activeroute.params.subscribe((params)=>{
       if(params.searchterm){
         this.agents=this.agentservice.getAllAgentBySearch(params.searchterm);
